@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Performance Dashboard | Nurul Hazirah</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================================
+           BI PROJECT PAGE
+        ================================= */
+
+        .bi-project {
+            background: #f7f2ec;
+            min-height: 100vh;
+            color: #2f2f2f;
+        }
+
+        .bi-nav {
+            padding: 24px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bi-back {
+            text-decoration: none;
+            color: #6f879b;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .bi-back:hover {
+            opacity: 0.7;
+        }
+
+        .bi-hero {
+            max-width: 1000px;
+            margin: 40px auto 70px;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .bi-label {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #6f879b;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .bi-hero h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.1;
+            margin: 0 0 22px;
+        }
+
+        .bi-subtitle {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .bi-tags {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .bi-tags span {
+            background: #e8eef2;
+            color: #5f778b;
+            padding: 9px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .bi-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+
+        .bi-section-title {
+            margin-bottom: 28px;
+        }
+
+        .bi-section-title p {
+            margin: 0 0 8px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #6f879b;
+            font-weight: 700;
+        }
+
+        .bi-section-title h2 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        /* Dashboard Image */
+
+        .dashboard-image {
+            background: #fffdf9;
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: 0 12px 35px rgba(60, 60, 60, 0.08);
+        }
+
+        .dashboard-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .image-caption {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Overview */
+
+        .bi-text {
+            background: #fffdf9;
+            padding: 32px;
+            border-radius: 18px;
+            line-height: 1.8;
+            color: #5f5f5f;
+            box-shadow: 0 8px 25px rgba(60, 60, 60, 0.05);
+        }
+
+        .bi-text p {
+            margin: 0 0 16px;
+        }
+
+        .bi-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Features */
+
+        .bi-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .bi-feature-card {
+            background: #fffdf9;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(60, 60, 60, 0.05);
+        }
+
+        .bi-feature-card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .bi-feature-card p {
+            margin: 0;
+            color: #707070;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* DAX */
+
+        .dax-image {
+            background: #fffdf9;
+            padding: 14px;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(60, 60, 60, 0.08);
+        }
+
+        .dax-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .dax-description {
+            margin-top: 18px;
+            background: #fffdf9;
+            padding: 28px;
+            border-radius: 16px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .dax-code {
+            margin-top: 20px;
+            background: #f1eee9;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        .dax-code code {
+            font-family: monospace;
+            font-size: 14px;
+            color: #455a69;
+        }
+
+        /* Technology */
+
+        .bi-tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .bi-tech-card {
+            background: #fffdf9;
+            padding: 22px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(60, 60, 60, 0.05);
+        }
+
+        .bi-tech-card strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #3f3f3f;
+        }
+
+        .bi-tech-card span {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Learning */
+
+        .bi-learning {
+            background: #fffdf9;
+            padding: 30px 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(60, 60, 60, 0.05);
+        }
+
+        .bi-learning li {
+            margin-bottom: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .bi-learning li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Future */
+
+        .future-box {
+            background: #e8eef2;
+            padding: 30px;
+            border-radius: 18px;
+            color: #526a7c;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        .bi-footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            .bi-feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bi-tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bi-hero {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .bi-nav {
+                padding: 20px;
+            }
+
+            .bi-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .bi-feature-grid,
+            .bi-tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bi-hero h1 {
+                font-size: 38px;
+            }
+
+            .bi-subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="bi-project">
+
+    <!-- Navigation -->
+    <nav class="bi-nav">
+
+        <a href="index.html" class="bi-back">
+            ← Back to Portfolio
+        </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="bi-hero">
+
+        <p class="bi-label">
+            BUSINESS INTELLIGENCE PROJECT
+        </p>
+
+        <h1>
+            Sales Performance Dashboard
+        </h1>
+
+        <p class="bi-subtitle">
+            An interactive Power BI dashboard developed to analyse
+            sales performance, revenue trends, product performance,
+            regional performance and customer metrics.
+        </p>
+
+        <div class="bi-tags">
+            <span>Power BI</span>
+            <span>DAX</span>
+            <span>Data Visualization</span>
+            <span>CSV</span>
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard Preview -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>DASHBOARD PREVIEW</p>
+            <h2>Sales Performance Overview</h2>
+        </div>
+
+        <div class="dashboard-image">
+
+            <img
+                src="sales_dashboard.jpeg"
+                alt="Sales Performance Dashboard created using Power BI"
+            >
+
+        </div>
+
+        <p class="image-caption">
+            Interactive Power BI dashboard showing key sales,
+            regional, category, product and monthly performance metrics.
+        </p>
+
+    </section>
+
+
+    <!-- Project Overview -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>PROJECT OVERVIEW</p>
+            <h2>What I Built</h2>
+        </div>
+
+        <div class="bi-text">
+
+            <p>
+                This project focuses on transforming structured sales
+                data into an interactive Business Intelligence dashboard
+                using Microsoft Power BI.
+            </p>
+
+            <p>
+                The dashboard provides a high-level overview of business
+                performance through key metrics and visual analysis across
+                regions, product categories, individual products and
+                monthly revenue trends.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Key Features -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>KEY FEATURES</p>
+            <h2>Dashboard Analysis</h2>
+        </div>
+
+        <div class="bi-feature-grid">
+
+            <div class="bi-feature-card">
+                <h3>Revenue KPI</h3>
+                <p>
+                    Tracks total revenue generated across the sales dataset.
+                </p>
+            </div>
+
+            <div class="bi-feature-card">
+                <h3>Sales Metrics</h3>
+                <p>
+                    Monitors total quantity, orders and customers.
+                </p>
+            </div>
+
+            <div class="bi-feature-card">
+                <h3>Regional Analysis</h3>
+                <p>
+                    Compares revenue performance across different regions.
+                </p>
+            </div>
+
+            <div class="bi-feature-card">
+                <h3>Category Analysis</h3>
+                <p>
+                    Analyses revenue contribution from different product categories.
+                </p>
+            </div>
+
+            <div class="bi-feature-card">
+                <h3>Product Performance</h3>
+                <p>
+                    Identifies products contributing the highest revenue.
+                </p>
+            </div>
+
+            <div class="bi-feature-card">
+                <h3>Monthly Trend</h3>
+                <p>
+                    Visualises revenue trends across the year.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DAX Section -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>TECHNICAL IMPLEMENTATION</p>
+            <h2>DAX Measures</h2>
+        </div>
+
+        <div class="dax-image">
+
+            <img
+                src="sales_dax.jpeg"
+                alt="DAX measure created in Power BI"
+            >
+
+        </div>
+
+        <div class="dax-description">
+
+            <p>
+                DAX (Data Analysis Expressions) was used to create
+                calculated measures for the dashboard's key performance
+                indicators.
+            </p>
+
+            <div class="dax-code">
+
+                <code>
+                    Total Revenue = SUM(sales_performance_dataset[Revenue])
+                </code>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Technologies -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>TOOLS & TECHNOLOGIES</p>
+            <h2>Technology Stack</h2>
+        </div>
+
+        <div class="bi-tech-grid">
+
+            <div class="bi-tech-card">
+                <strong>Power BI</strong>
+                <span>Dashboard & Visualization</span>
+            </div>
+
+            <div class="bi-tech-card">
+                <strong>DAX</strong>
+                <span>Data Calculations</span>
+            </div>
+
+            <div class="bi-tech-card">
+                <strong>CSV</strong>
+                <span>Dataset</span>
+            </div>
+
+            <div class="bi-tech-card">
+                <strong>Data Analysis</strong>
+                <span>Business Insights</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Learning Outcomes -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>LEARNING OUTCOMES</p>
+            <h2>What I Learned</h2>
+        </div>
+
+        <div class="bi-learning">
+
+            <ul>
+
+                <li>
+                    Building interactive dashboards using Power BI.
+                </li>
+
+                <li>
+                    Creating KPI measures using DAX.
+                </li>
+
+                <li>
+                    Analysing business performance from structured datasets.
+                </li>
+
+                <li>
+                    Selecting suitable visualisations for different
+                    business metrics.
+                </li>
+
+                <li>
+                    Designing a clean and user-friendly dashboard layout.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Future Improvements -->
+    <section class="bi-section">
+
+        <div class="bi-section-title">
+            <p>FUTURE IMPROVEMENTS</p>
+            <h2>Next Development</h2>
+        </div>
+
+        <div class="future-box">
+
+            Future improvements include connecting the dashboard
+            to a SQL database, introducing automated data refresh,
+            and expanding the analysis with additional business
+            performance metrics.
+
+        </div>
+
+    </section>
+
+
+    <!-- Back Button -->
+    <section class="bi-section">
+
+        <a href="index.html" class="bi-back">
+            ← Back to Portfolio
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bi-footer">
+
+        © 2026 Nurul Hazirah Mohd Zulkifle
+
+    </footer>
+
+</body>
+</html>

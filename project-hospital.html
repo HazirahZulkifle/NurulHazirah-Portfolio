@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Laboratory Portal | Nurul Hazirah</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           PROJECT PAGE
+        ========================= */
+
+        .project-page {
+            min-height: 100vh;
+            background: var(--cream);
+        }
+
+        .project-hero {
+            padding: 90px 8% 70px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(125, 145, 163, 0.15),
+                    transparent 30%
+                ),
+                var(--cream);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 35px;
+
+            color: var(--blue-dark);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        .project-hero-grid {
+            max-width: 1100px;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .project-page-label {
+            margin-bottom: 15px;
+
+            color: var(--blue-dark);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+        }
+
+        .project-page h1 {
+            font-size: clamp(44px, 6vw, 70px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            color: var(--navy);
+        }
+
+        .project-intro {
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 25px;
+        }
+
+        .project-tech span {
+            padding: 6px 11px;
+
+            border-radius: 6px;
+
+            background: #e9e4df;
+
+            color: #66615d;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .project-hero-card {
+            min-height: 330px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 35px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #e4ebef,
+                    #fffdfb
+                );
+
+            border: 1px solid #ddd5ce;
+
+            box-shadow:
+                0 25px 55px rgba(48, 59, 70, 0.08);
+        }
+
+        .project-placeholder {
+            width: 100%;
+            height: 190px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #c8d2da,
+                    #e8e2dc
+                );
+
+            color: #66727b;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .project-card-note {
+            margin-top: 17px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           PROJECT CONTENT
+        ========================= */
+
+        .project-content {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 90px 8%;
+        }
+
+        .project-content-grid {
+            display: grid;
+
+            grid-template-columns: 1.25fr 0.75fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .project-content h2 {
+            margin-bottom: 18px;
+
+            font-size: 30px;
+
+            letter-spacing: -1px;
+
+            color: var(--navy);
+        }
+
+        .project-content h3 {
+            margin-top: 45px;
+            margin-bottom: 13px;
+
+            font-size: 20px;
+
+            color: var(--navy);
+        }
+
+        .project-content p {
+            margin-bottom: 17px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .feature-list {
+            margin-top: 20px;
+
+            padding-left: 0;
+
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+
+            margin-bottom: 12px;
+
+            padding-left: 23px;
+
+            color: #666d72;
+
+            font-size: 14px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--blue-dark);
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           PROJECT INFO CARD
+        ========================= */
+
+        .project-info {
+            position: sticky;
+            top: 100px;
+
+            padding: 27px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background: rgba(255, 253, 251, 0.75);
+        }
+
+        .info-group {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-group:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            border-bottom: none;
+        }
+
+        .info-label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: var(--brown);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .info-value {
+            color: var(--navy);
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-top: 7px;
+        }
+
+        .info-tags span {
+            padding: 5px 8px;
+
+            border-radius: 5px;
+
+            background: #ebe6e1;
+
+            color: #6a6764;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           PROJECT LINKS
+        ========================= */
+
+        .project-actions {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 28px;
+
+            flex-wrap: wrap;
+        }
+
+        .project-actions a {
+            padding: 10px 15px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+        }
+
+        .github-button {
+            background: var(--navy);
+
+            color: white;
+        }
+
+        .github-button:hover {
+            background: var(--blue-dark);
+
+            transform: translateY(-2px);
+        }
+
+        .portfolio-button {
+            border: 1px solid #cfc5bd;
+
+            color: var(--text);
+        }
+
+        .portfolio-button:hover {
+            border-color: var(--blue-dark);
+
+            color: var(--blue-dark);
+        }
+
+
+        /* =========================
+           SCREENSHOT SECTION
+        ========================= */
+
+        .screenshots-section {
+            padding: 90px 8%;
+
+            background: #f0ece7;
+        }
+
+        .screenshots-container {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .screenshots-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+
+            margin-top: 40px;
+        }
+
+        .screenshot-placeholder {
+            min-height: 240px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            border: 1px dashed #c8bdb4;
+
+            background: rgba(255, 253, 251, 0.65);
+
+            color: #8a817b;
+
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .project-hero-grid,
+            .project-content-grid {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .project-info {
+                position: static;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .project-hero {
+                padding: 65px 6% 55px;
+            }
+
+            .project-page h1 {
+                font-size: 45px;
+
+                letter-spacing: -2px;
+            }
+
+            .project-content {
+                padding: 70px 6%;
+            }
+
+            .screenshots-section {
+                padding: 70px 6%;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            NH<span>.</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html#home">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#experience">
+                Experience
+            </a>
+
+            <a href="index.html#skills">
+                Skills
+            </a>
+
+            <a href="index.html#projects">
+                Projects
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+        <a href="index.html#projects"
+           class="nav-button">
+
+            Projects
+
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         PROJECT HERO
+    ========================= -->
+
+    <main class="project-page">
+
+        <section class="project-hero">
+
+            <a href="index.html#projects"
+               class="back-link">
+
+                ← Back to Projects
+
+            </a>
+
+
+            <div class="project-hero-grid">
+
+
+                <div>
+
+                    <p class="project-page-label">
+                        WEB DEVELOPMENT
+                    </p>
+
+                    <h1>
+                        Hospital Laboratory Portal
+                    </h1>
+
+                    <p class="project-intro">
+                        A responsive web-based laboratory portal designed
+                        to centralize departmental information, documents,
+                        announcements, staff information and activities
+                        within a single interface.
+                    </p>
+
+
+                    <div class="project-tech">
+
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Design</span>
+                        <span>Git & GitHub</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-hero-card">
+
+    <div class="project-image">
+        <img src="hospital_dashboard.jpeg" alt="Hospital Laboratory Portal Dashboard">
+    </div>
+
+    <p class="project-card-note">
+        Main dashboard interface featuring responsive navigation, department announcements, quick access and laboratory resources.
+    </p>
+
+    <div class="project-image secondary">
+        <img src="hospital_login.jpeg" alt="Hospital Laboratory Portal Login Page">
+    </div>
+
+    <p class="project-card-note">
+        Login interface with password validation and show/hide password functionality.
+    </p>
+
+</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECT INFORMATION
+        ========================= -->
+
+        <section class="project-content">
+
+            <div class="project-content-grid">
+
+
+                <div>
+
+
+                    <h2>
+                        Project Overview
+                    </h2>
+
+                    <p>
+                        The Hospital Laboratory Portal was developed as a
+                        centralized web interface for accessing departmental
+                        resources and information.
+                    </p>
+
+                    <p>
+                        The interface focuses on clear navigation,
+                        responsive layouts and a simple user experience
+                        across desktop, laptop, tablet and mobile devices.
+                    </p>
+
+
+                    <h3>
+                        Key Features
+                    </h3>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            Responsive desktop and mobile interface
+                        </li>
+
+                        <li>
+                            Collapsible sidebar navigation
+                        </li>
+
+                        <li>
+                            Mobile sidebar auto-close navigation
+                        </li>
+
+                        <li>
+                            Login interface with password validation
+                        </li>
+
+                        <li>
+                            Show and hide password functionality
+                        </li>
+
+                        <li>
+                            Department news and announcements
+                        </li>
+
+                        <li>
+                            Laboratory document section
+                        </li>
+
+                        <li>
+                            Staff information section
+                        </li>
+
+                        <li>
+                            Department activities section
+                        </li>
+
+                        <li>
+                            Document search functionality
+                        </li>
+
+                    </ul>
+
+
+                    <h3>
+                        What I Worked On
+                    </h3>
+
+                    <p>
+                        I designed and developed the user interface,
+                        responsive navigation and interactive elements
+                        using HTML, CSS and JavaScript.
+                    </p>
+
+                    <p>
+                        I also implemented responsive behaviour so that
+                        the sidebar and content adapt to different screen
+                        sizes, including automatic sidebar closing on
+                        smaller devices.
+                    </p>
+
+
+                    <h3>
+                        What I Learned
+                    </h3>
+
+                    <p>
+                        This project strengthened my understanding of
+                        responsive web design, JavaScript interactions,
+                        interface structure and maintaining a web project
+                        using Git and GitHub.
+                    </p>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJECT INFO
+                ========================= -->
+
+                <aside class="project-info">
+
+
+                    <div class="info-group">
+
+                        <span class="info-label">
+                            CATEGORY
+                        </span>
+
+                        <span class="info-value">
+                            Web Development
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-group">
+
+                        <span class="info-label">
+                            TECHNOLOGIES
+                        </span>
+
+                        <div class="info-tags">
+
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-group">
+
+                        <span class="info-label">
+                            FOCUS
+                        </span>
+
+                        <span class="info-value">
+                            Responsive UI & User Experience
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-group">
+
+                        <span class="info-label">
+                            STATUS
+                        </span>
+
+                        <span class="info-value">
+                            Portfolio Demo
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-actions">
+
+                        <a
+                            href="https://github.com/HazirahZulkifle/hospital-dashboard-portfolio"
+                            target="_blank"
+                            class="github-button">
+
+                            GitHub →
+
+                        </a>
+
+                        <a
+                            href="index.html#projects"
+                            class="portfolio-button">
+
+                            Back
+
+                        </a>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SCREENSHOTS
+        ========================= -->
+
+        <section class="screenshots-section">
+
+            <div class="screenshots-container">
+
+                <p class="section-label">
+                    PROJECT HIGHLIGHTS
+                </p>
+
+                <h2 class="section-heading"
+                    style="margin-bottom: 0;">
+
+                    Built for <span>usability.</span>
+
+                </h2>
+
+
+            <div class="screenshots-grid">
+
+    <div class="screenshot-placeholder">
+        <strong>Technical Highlights</strong>
+        <br><br>
+        HTML5 · CSS3 · JavaScript
+        <br>
+        Responsive Design · Local Storage
+        <br>
+        Git & GitHub
+    </div>
+
+    <div class="screenshot-placeholder">
+        <strong>Development Approach</strong>
+        <br><br>
+        Designed a clean hospital portal interface
+        with structured navigation, responsive layouts,
+        interactive components and user-friendly access.
+    </div>
+
+    <div class="screenshot-placeholder">
+        <strong>User Experience</strong>
+        <br><br>
+        Focused on intuitive navigation, responsive layouts,
+        accessible content and simple interactions
+        for a smoother user experience.
+    </div>
+
+    <div class="screenshot-placeholder">
+        <strong>Future Improvements</strong>
+        <br><br>
+        Backend integration · Database connectivity
+        <br>
+        Role-based authentication · API integration
+        <br>
+        Enhanced document management
+    </div>
+
+</div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Nurul Hazirah Mohd Zulkifle.
+            Built with HTML, CSS & JavaScript.
+       '' </p>
+
+    </footer>
+
+
+</body>
+
+</html>
